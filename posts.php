@@ -20,3 +20,13 @@
  * dosyasını döngü içinde dahil etmeli ve her yazı için detayları göstermelisiniz.
  */
 
+include_once "functions.php"; // functions dosyasını dahil ediyoruz
+
+$random = getRandomPostCount(1, 5); // metoda 1-5 arasında değer göndererek gelen değeri random değişkeninde tutuyoruz
+$posts = getLatestPosts($random);   // metoda rastgele oluşturulan sayıyı gönderek gelen değeri post değişkeninde tutuyoruz
+
+foreach ($posts as $id => $post) { // tüm postlarda dolaşım sağlar
+    $title = $post['title'];
+    $type = $post['type'];
+    include "post.php";
+}

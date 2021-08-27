@@ -23,3 +23,32 @@
  * - `getPostDetails` fonksiyonu tetiklenerek ilgili içeriğin çıktısı gösterilmeli.
  */
 
+include_once "functions.php";
+
+if (!isset($id)) { // id değeri yok ise
+    $id = 1;
+}
+
+if (!isset($title)) { // title değeri yok ise
+    $title = "Default title";
+}
+
+if (!isset($type)) { // type değeri yok ise
+     $type = "normal";
+}
+
+switch ($type) { // type değerine göre seçim yapar
+    case "urgent":
+        $color = "red";
+        break;
+    case "warning":
+        $color = "yellow";
+        break;
+    case "normal":
+        $color = "white";
+        break;
+}
+
+echo "<div style=background-color:" . $color . ">";
+getPostDetails($id, $title); // metoda id ve title değerlerini gönderir
+echo "</div>";

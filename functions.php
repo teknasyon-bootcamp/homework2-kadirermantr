@@ -49,3 +49,14 @@ EOT;
 
 // Aşağıya fonksiyonu tanımlayabilirsiniz.
 
+function getRandomPostCount($min, $max) // mix ve max parametreleri ile rastgele değer döndüren fonksiyon
+{
+    return rand($min, $max);
+}
+
+$page = basename($_SERVER['REQUEST_URI']); // sayfaya erişim sağlanan URI
+$file = basename(__FILE__); // gecerli dizin
+
+if ($page == $file) {
+    exit("You don't have permission to access...");
+}
